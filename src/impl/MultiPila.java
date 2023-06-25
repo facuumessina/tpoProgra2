@@ -47,7 +47,7 @@ public class MultiPila implements MultiPilaTDA {
 	 * @devuelve Nada, método void.
 	 * @precondiciones Pila inicializada.
 	 * @postcondiciones Se realiza el desapilado en caso de corresponder y se mantiene la estructura valores proveída al método.
-	 * @costo nulo
+	 * @costo ¿
 	 */
 
 	@Override
@@ -68,30 +68,51 @@ public class MultiPila implements MultiPilaTDA {
 	}
 	
 	/**
-	 * @tarea hola
-	 * @parámetros
-	 * @devuelve
-	 * @precondiciones
+	 * @tarea Devuelve una pila con los valores que estén en el tope de la multipila. La cantidad de valores a devolver se define por parámetro y debe preservarse el orden.
+	 * @parámetros cantidad: Cantidad de topes a retornar dentro de la pila
+	 * @devuelve topes: Pila que contiene la cantidad de topes solicitados
+	 * @precondiciones Pila inicializada
 	 * @postcondiciones
-	 * @costo nulo
+	 * @costo 
 	 */
 
 	@Override
 	public PilaTDA tope(int cantidad) {
 		PilaTDA topes = new Pila();
+		topes.inicializarPila();
+	
+		Nodo aux = origen;
+		int i =0;
 		
+		while(aux != null) { // Se recorre la pila actual a través de un nodo auxiliar e iteración para determinar la cantidad de valores
+			aux = aux.sig;
+			i++;
+		}
 		
+		Nodo aux2 = origen;
+		
+		if (i<cantidad) {
+			while (aux2 != null) {
+				topes.apilar(aux2.info);
+				aux2 = aux2.sig;
+			}
+		}else {
+			while (cantidad > 0) {
+				topes.apilar(aux2.info);
+				cantidad--;
+			}
+		}
 		
 		return topes;
 	}
 	
 	/**
-	 * @tarea hola
-	 * @parámetros
-	 * @devuelve
+	 * @tarea Inicializa la multipila
+	 * @parámetros No recibe parámetros de entrada
+	 * @devuelve Nada, método void
 	 * @precondiciones
 	 * @postcondiciones
-	 * @costo nulo
+	 * @costo Constante
 	 */
 
 	@Override
@@ -100,12 +121,12 @@ public class MultiPila implements MultiPilaTDA {
 	}
 	
 	/**
-	 * @tarea hola
-	 * @parámetros
-	 * @devuelve
-	 * @precondiciones
+	 * @tarea Devuelve un booleano que indica si la pila está vacía.
+	 * @parámetros No recibe parámetros de entrada.
+	 * @devuelve Devuelve un booleano que indica si la pila está vacía.
+	 * @precondiciones Pila inicializada.
 	 * @postcondiciones
-	 * @costo nulo
+	 * @costo Constante
 	 */
 
 	@Override
