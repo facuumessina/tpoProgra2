@@ -1,4 +1,4 @@
-package tda;
+package tdas;
 
 public interface ConjuntoEspecialTDA {
 	

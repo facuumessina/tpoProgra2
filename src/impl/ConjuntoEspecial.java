@@ -1,6 +1,6 @@
 package impl;
 
-import tda.ConjuntoEspecialTDA;
+import tdas.ConjuntoEspecialTDA;
 
 public class ConjuntoEspecial implements ConjuntoEspecialTDA {
 
@@ -92,7 +92,7 @@ public class ConjuntoEspecial implements ConjuntoEspecialTDA {
 
 	@Override
 	public boolean conjuntoVacio() {
-		return origen == null;
+		return (origen == null);
 	}
 
 }
