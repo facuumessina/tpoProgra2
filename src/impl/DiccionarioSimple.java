@@ -164,7 +164,7 @@ public class DiccionarioSimple implements DiccionarioSimpleTDA {
 	 * @tarea Retorna el conjunto de claves del diccionario.
 	 * @parámetros No se recibe ningún parámetro.
 	 * @devuelve c: El conjunto de claves del diccionario.
-	 * @precondiciones pila inicializada.
+	 * @precondiciones Diccionario inicializado.
 	 * @postcondiciones Se realiza el apilado y se mantiene la estructura valores proveída al método.
 	 * @costo .
 	 */
