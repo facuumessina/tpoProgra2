@@ -1,12 +1,16 @@
 package user;
 
+import impl.Cola;
+import impl.Conjunto;
 import impl.Pila;
+import tda.ColaTDA;
+import tdas.ConjuntoTDA;
 import tdas.PilaTDA;
 
 public class ColaSinRepetidos {
 	
 	/**
-	 * @estrategia Para este ejercicio, se requiere la inicialización de 2 colas auxiliares y una pila, el objetivo es recorrer la cola aux (representa la cola recibida para no modificar estructuras), la pila aux2 contendría el elemento a comparar siempre si está repetido y finalmente, tenemos la cola aux3 la cual representa un espejo de la cola sinrep (cola a retornar), la cual nos ayudaría a recorrer dicha cola en busca de elementos repetidos.
+	 * @estrategia Para la realización del ejercicio, se requerirá la inicialización de una cola auxiliar para no modificar la estructura recibida, la inicialización de la estructura a retornar y adicionalmente, la inicialización de un conjunto el cual contendrá los valores numéricos repetidos de la cola. Se recorrerá la cola asignando a la variable "valor" el primer valor de la cola, luego se validará si el valor no pertenece al conjunto inicializado, en ese caso, se acolará el elemento a la cola a retornar y se agregará al conjunto. Finalmente una vez recorrida la cola auxiliar, se retornará la cola solicitada sin repeticiones.
 	 * @tarea Devolver una cola sin repetidos.
 	 * @parámetros cola: Cola recibida para eliminar repeticiones en orden.
 	 * @devuelve sinrep: Cola sin repeticiones.
@@ -15,54 +19,32 @@ public class ColaSinRepetidos {
 	 * @costo Polinómico
 	 */
 	
-		public static ColaTDA ColaSinRepetidos(ColaTDA cola) {
-		
-			ColaTDA aux = new Cola();
-			aux.inicializarCola();
+		public static ColaTDA colaSinRepetidos(ColaTDA cola) {
 		
 			ColaTDA sinrep = new Cola();
 			sinrep.inicializarCola();
-		
+			
+			ColaTDA aux = new Cola(); // Cola identica al parámetro recibido
+			aux.inicializarCola();
+			
 			aux = cola;
-		
-			PilaTDA aux2 = new Pila();
-			aux2.inicializarPila();
-		
-			ColaTDA aux3 = new Cola();
-			aux3.inicializarCola();
-		
-			sinrep.acolar(aux.primero());
-			aux3.acolar(aux.primero());
-			aux.desacolar();
-		
-			while(!aux.colaVacia()) { // se recorre la cola auxiliar // constante
 			
-				aux2.apilar(aux.primero());
+			ConjuntoTDA repetidos = new Conjunto(); // Conjunto con los elementos repetidos
+			repetidos.InicializarConjunto();
+			
+			while(!aux.colaVacia()) { // Constante
+				
+				int valor = aux.primero();
+				
+				if(!repetidos.Pertenece(valor)) {// Lineal
+					sinrep.acolar(valor);
+					repetidos.Agregar(valor);
+				}// --> Lineal
+				
 				aux.desacolar();
+				
+			}// --> Polinómico
 			
-				if(sinrep.primero() != aux2.tope()) { // constante
-				
-					aux3.desacolar();
-				
-					while(!aux3.colaVacia()) {
-					
-						if(aux3.primero() == aux2.tope()) {
-						aux3.desacolar();
-						}
-					}// --> Lineal
-				
-					if(aux3.colaVacia()) {
-						sinrep.acolar(aux2.tope());
-						aux3 = sinrep;
-					}
-	
-				}// --> Polinómico (ya que es el peor costo, se asume como máximo)
-				else {
-					aux.desacolar();
-				}
-			
-			}
-		
 			return sinrep;
 		}
 
