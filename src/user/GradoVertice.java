@@ -4,6 +4,8 @@ import impl.Conjunto;
 import tdas.ConjuntoTDA;
 import tda.GrafoTDA;
 
+// Ejercicio 11//
+
 public class GradoVertice {
 	
 	/**

@@ -3,6 +3,8 @@ package impl;
 import tdas.MultiPilaTDA;
 import tdas.PilaTDA;
 
+/// Ejercicio 2////
+
 public class MultiPila implements MultiPilaTDA {
 
 	class Nodo{

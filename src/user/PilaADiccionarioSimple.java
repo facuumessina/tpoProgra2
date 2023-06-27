@@ -5,6 +5,8 @@ import impl.DiccionarioSimple;
 import impl.Pila;
 import tdas.DiccionarioSimpleTDA;
 
+// Ejercicio 6 //
+
 public class PilaADiccionarioSimple {
 	
 	/**

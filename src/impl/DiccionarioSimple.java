@@ -4,6 +4,8 @@ import tdas.ConjuntoTDA;
 import tdas.DiccionarioSimpleTDA;
 import tdas.ColaPrioridadTDA;
 
+/// Ejercicio 3/////
+
 public class DiccionarioSimple implements DiccionarioSimpleTDA {
 
 	ColaPrioridadTDA origen = new ColaPrioridad();
