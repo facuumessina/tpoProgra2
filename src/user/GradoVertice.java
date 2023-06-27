@@ -16,7 +16,7 @@ public class GradoVertice {
 	 * @costo Polinomico
 	 */
 	
-public static int calcularGradoVertice(GrafoTDA grafo, int vertice) {
+	public static int calcularGradoVertice(GrafoTDA grafo, int vertice) {
 	    
 		int grado = 0;
 	    
